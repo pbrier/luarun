@@ -16,4 +16,4 @@
 -- print( askfile("File to open...","*.txt"));
 -- print( askfile("Text file to save...","wo","Text files|*.txt|All files|*"));
 -- print( askdir("Input directory") );
-print(arg[0] .. "\n" .. arg[1]);
+print(arg[0] .. "\n" .. (arg[1] or ""));
