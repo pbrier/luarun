@@ -1,0 +1,19 @@
+-- main.wx.lua
+-- Sample script, to be used with luarun.exe
+-- This script is automatically executed if it is in the same directory as the luarun.exe file
+-- Luarun provides a number of very basic ui functions:
+--
+-- ask("question", "default anwser") -- Shows question dialog and return the awnser string
+-- question("question") -- shows yes/no/cancel dialog and return "yes", "no" or "calcel" string
+-- print("text") -- Shows messagebox with text (standard wxlua functionality)
+-- askfile("caption","mode","wildcard") -- Shows file-open dialog, return filename string. mode can be "r" or "w". Wildcard: "All|*|Text files|*.txt"
+-- askdir("caption") -- return directory name
+
+
+-- print ( ask() );
+-- print ( question("Quit?") );
+-- wxlua.LuaStackDialog()
+-- print( askfile("File to open...","*.txt"));
+-- print( askfile("Text file to save...","wo","Text files|*.txt|All files|*"));
+-- print( askdir("Input directory") );
+print(arg[0] .. "\n" .. arg[1]);
