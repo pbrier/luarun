@@ -12,6 +12,7 @@
 -- A number of very basic UI functions are exposed to the script to open a file, show a message of ask for a value
 --
 
+
 ---
 --- Open a FileDialog
 --- if rw = nil: ask for a lua script file
@@ -84,6 +85,30 @@ function question(question)
   elseif result == wx.wxID_NO then
     return "no";
   end
+end;
+
+-- Show textbox. If edit is true the text can be edited. In addition we copy the content of readonly textbox to clipboard
+function textbox(value,edit,caption)
+  local ro = wx.wxTE_READONLY;
+  if edit then ro = 0 end; 
+  caption = caption or "Text...";
+  local s = wx.wxBoxSizer(wx.wxVERTICAL)
+  local d = wx.wxDialog(wx.NULL, wx.wxID_ANY, caption, wx.wxDefaultPosition, wx.wxDefaultSize, wx.wxDEFAULT_DIALOG_STYLE+wx.wxRESIZE_BORDER+wx.wxMAXIMIZE_BOX+wx.wxMINIMIZE_BOX)
+  local t = wx.wxTextCtrl( d, wx.wxID_ANY, value, wx.wxDefaultPosition, wx.wxDefaultSize, wx.wxTE_MULTILINE + ro );
+  if not edit then
+    t:SetSelection(-1,-1);
+    t:Copy();
+    t:SetSelection(0,0);
+  end;
+  s:Add(t, 3, wx.wxGROW + wx.wxALL, 6)
+  d:SetAutoLayout(true)
+  d:SetSizer(s)
+  d:SetInitialSize(wx.wxSize(800, 600))
+  d:ShowModal();
+  value = t:GetValue();
+  t:Destroy();
+  d:Destroy();
+  return value;
 end;
 
 
