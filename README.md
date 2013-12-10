@@ -11,11 +11,16 @@ Attach to wxluafreeze.exe to make a stand-alone executeable:
 Inside the script, you can use the return value to keep continuing a script: true = continue (call script again or ask for new lua script), false = stop
 
 A number of very basic UI functions are exposed to the script to open a file, show a message of ask for a value
+These all appear as modal dialog boxes.
+* `ask("question", "default anwser", "caption")` -- Shows question dialog and return the awnser string
+* `question("question")` -- shows yes/no/cancel dialog and return "yes", "no" or "calcel" string
+* `print("text")` -- Shows messagebox with text (standard wxlua functionality)
+* `askfile("caption","mode","wildcard", "file", "dir")` -- Shows file-open dialog, return filename string. mode can be "r" or "w". Wildcard: "All|*|Text files|*.txt"
+* `askdir("message", "default")` -- return directory name
+* `textbox("value", edit, "caption")` -- Show a textbot, if edit=true, than the text value can be edited
 
-ask("question", "default anwser") -- Shows question dialog and return the awnser string
-question("question") -- shows yes/no/cancel dialog and return "yes", "no" or "calcel" string
-print("text") -- Shows messagebox with text (standard wxlua functionality)
-askfile("caption","mode","wildcard") -- Shows file-open dialog, return filename string. mode can be "r" or "w". Wildcard: "All|*|Text files|*.txt"
-askdir("caption") -- return directory name
 
 And of course, all wxLua functions are available.
+
+Inside the Executed script, you can use the return value to keep continuing a script: true = continue (call script again or ask for new lua script), false or nil = stop
+
