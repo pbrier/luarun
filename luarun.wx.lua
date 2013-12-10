@@ -21,6 +21,8 @@
 --- if rw contains 'o': prompt for overwrite
 ---
 function askfile(caption, rw, filter, file, dir)
+  caption = caption or "";
+  rw = rw or "";
   filter = filter or  "All files (*)|*|Text files (*.txt)|*.txt";
   file = file or "";
   dir = dir or "";
@@ -95,7 +97,7 @@ function textbox(value,edit,caption)
   local s = wx.wxBoxSizer(wx.wxVERTICAL)
   local d = wx.wxDialog(wx.NULL, wx.wxID_ANY, caption, wx.wxDefaultPosition, wx.wxDefaultSize, wx.wxDEFAULT_DIALOG_STYLE+wx.wxRESIZE_BORDER+wx.wxMAXIMIZE_BOX+wx.wxMINIMIZE_BOX)
   local t = wx.wxTextCtrl( d, wx.wxID_ANY, value, wx.wxDefaultPosition, wx.wxDefaultSize, wx.wxTE_MULTILINE + ro );
-  if not edit then
+  if not edit then -- copy to clipboard
     t:SetSelection(-1,-1);
     t:Copy();
     t:SetSelection(0,0);
@@ -108,7 +110,26 @@ function textbox(value,edit,caption)
   value = t:GetValue();
   t:Destroy();
   d:Destroy();
+ 
   return value;
+end;
+
+-- Present a list of choices, and ask to select one
+function choose(choices, caption,default)
+  caption = caption or "Please make a selection";
+  default = default or 0;
+  local choices = choices or  {"one", "two", "three", "four"}
+  local s = wx.wxBoxSizer(wx.wxVERTICAL)
+  local d = wx.wxDialog(wx.NULL, wx.wxID_ANY, caption, wx.wxDefaultPosition, wx.wxDefaultSize, wx.wxDEFAULT_DIALOG_STYLE+wx.wxRESIZE_BORDER+wx.wxMAXIMIZE_BOX+wx.wxMINIMIZE_BOX)
+  local rb = wx.wxRadioBox(d, wx.wxID_ANY, caption,  wx.wxDefaultPosition, wx.wxDefaultSize, choices, 1, 0); 
+  s:Add(rb, 3, wx.wxGROW + wx.wxALL, 6)
+  d:SetSizer(s)
+  s:SetSizeHints(d) 
+  rb:SetSelection(default);
+  d:ShowModal();
+  value =choices[ rb:GetSelection() + 1];
+  d:Destroy();     
+  return value;              
 end;
 
 
@@ -130,4 +151,3 @@ repeat
   end;
   if scriptname then result = dofile(scriptname); end;
 until not result or not scriptname;
-            
