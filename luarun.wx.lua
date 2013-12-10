@@ -1,16 +1,32 @@
---
--- luarun.wx.lua
--- Peter Brier
--- Wrapper for wxlua to run a lua script in the current directory (main.wx.lua) or select one using a file selection dialog
--- Tested with wxLua-2.8.12.2-MSW-Unicode
---
--- Attach to wxluafreeze.exe to make a stand-alone executeable:
--- ..\bin\lua.exe ..\apps\wxluafreeze\wxluafreeze.lua ..\bin\wxLuaFreeze.exe luarun.wx.lua luarun.exe
---
--- Inside the script, you can use the return value to keep continuing a script: true = continue (call script again or ask for new lua script), false = stop
---
--- A number of very basic UI functions are exposed to the script to open a file, show a message of ask for a value
---
+ --
+ -- luarun.wx.lua
+ -- Copyright (c) 2013 Peter Brier
+ --
+ -- This file is part of the luarun project
+ --
+ -- luarun is free software: you can redistribute it and/or modify
+ -- it under the terms of the GNU General Public License as published by
+ -- the Free Software Foundation, either version 3 of the License, or
+ -- (at your option) any later version.
+ --
+ -- revolver is distributed in the hope that it will be useful,
+ -- but WITHOUT ANY WARRANTY; without even the implied warranty of
+ -- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ -- GNU General Public License for more details.
+ --
+ -- You should have received a copy of the GNU General Public License
+ -- along with revolver. If not, see <http://www.gnu.org/licenses/>.
+ -- 
+ -- Wrapper for wxlua to run a lua script in the current directory (main.wx.lua) or select one using a file selection dialog
+ -- Tested with wxLua-2.8.12.2-MSW-Unicode
+ --
+ -- Attach to wxluafreeze.exe to make a stand-alone executeable:
+ -- ..\bin\lua.exe ..\apps\wxluafreeze\wxluafreeze.lua ..\bin\wxLuaFreeze.exe luarun.wx.lua luarun.exe
+ --
+ -- Inside the script, you can use the return value to keep continuing a script: true = continue (call script again or ask for new lua script), false = stop
+ --
+ -- A number of very basic UI functions are exposed to the script to open a file, show a message of ask for a value
+ -- 
 
 
 ---

@@ -13,14 +13,13 @@
 
 -- Examples:
 
--- print ( ask() );
+print ( ask() );
 print ( question("Quit?") );
 -- wxlua.LuaStackDialog()
 print( askfile() );
 print( askfile("File to open..."));
 print( askfile("Text file to save...","wo","Text files|*.txt|All files|*"));
--- print( askdir("Input directory") );
--- print(arg[0] .. "\n" .. (arg[1] or ""));                     
--- print( textbox("Helloworld\n\nYes yes", true, "Edit the text"));
-
+print( askdir("Input directory") );
+print(arg[0] .. "\n" .. (arg[1] or ""));                     
+print( textbox("Helloworld\n\nYes yes", true, "Edit the text"));
 print( choose( {"a", "another long selection for a test", "b selection line", "c selection"},"my selection", 2 )) ;
