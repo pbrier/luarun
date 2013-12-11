@@ -21,7 +21,7 @@
  -- Tested with wxLua-2.8.12.2-MSW-Unicode
  --
  -- Attach to wxluafreeze.exe to make a stand-alone executeable:
- -- ..\bin\lua.exe ..\apps\wxluafreeze\wxluafreeze.lua ..\bin\wxLuaFreeze.exe luarun.wx.lua luarun.exe
+ -- ..\bin\lua.exe ..\apps\wxluafreeze\wxluafreeze.lua ..\bin\wxLuaFreeze.exe luarun_wx.lua luarun.exe
  --
  -- Inside the script, you can use the return value to keep continuing a script: true = continue (call script again or ask for new lua script), false = stop
  --

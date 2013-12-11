@@ -16,9 +16,11 @@ These all appear as modal dialog boxes.
 * `ask("question", "default anwser", "caption")` -- Shows question dialog and return the awnser string
 * `question("question")` -- shows yes/no/cancel dialog and return *"yes"*, *"no"* or *"cancel"* string
 * `print("text")` -- Shows messagebox with text (standard wxlua functionality)
-* `askfile("caption","mode","wildcard", "file", "dir")` -- Shows file-open dialog, return filename string. mode can be "r" or "w". Wildcard: "All|*|Text files|*.txt"
-* `askdir("message", "default")` -- return directory name
+* `askfile("caption", "mode", "wildcard", "file", "dir")` -- Shows file-open dialog, return filename string. mode can be "r" or "w". Wildcard: "All|*|Text files|*.txt"
+* `askdir("message", "default")` -- show directory selection dialog and return directory name (nil if none selected)
 * `textbox("value", edit, "caption")` -- Show a textbot, if edit=true, than the text value can be edited
+* `choose({"choice a", "choice b", "choice c"}, "caption", default)` -- Show a selection of choices as radiobuttons and return the selected button
+* `check({"choice a", "choice b", "choice c"}, "caption", default)` -- Show a selection of choices as checkboxes and return the array of selections with the bool values
 
 
 And of course, all wxLua functions are available.
