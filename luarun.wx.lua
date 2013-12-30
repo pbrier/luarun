@@ -20,9 +20,11 @@
  -- Wrapper for wxlua to run a lua script in the current directory (main.wx.lua) or select one using a file selection dialog
  -- Tested with wxLua-2.8.12.2-MSW-Unicode
  --
- -- Attach to wxluafreeze.exe to make a stand-alone executeable:
- -- ..\bin\lua.exe ..\apps\wxluafreeze\wxluafreeze.lua ..\bin\wxLuaFreeze.exe luarun_wx.lua luarun.exe
+ -- To attach to wxluafreeze.exe to make a stand-alone executeable, use this command:
  --
+ --        ..\bin\lua.exe ..\apps\wxluafreeze\wxluafreeze.lua ..\bin\wxLuaFreeze.exe luarun.wx.lua luarun.exe
+ -- 
+ -- This assumes luarun is checked out inside the wxLua folder, and you will have a luarun.exe file if everything is OK.
  -- Inside the script, you can use the return value to keep continuing a script: true = continue (call script again or ask for new lua script), false = stop
  --
  -- A number of very basic UI functions are exposed to the script to open a file, show a message of ask for a value
